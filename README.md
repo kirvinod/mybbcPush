@@ -141,7 +141,7 @@ Application can send 3 types of notifications: Note, File and Link.
 
 #### Send Notification to user `POST /api/user/notify` (valid request)
 ```sh
-curl -i -X POST -H "Content-Type:application/jsname": "bbcUser1", "type": "note", "title": "t1", "body":"b1"}'  http://localhost:8080/api/user/notify
+curl -i -X POST -H "Content-Type:application/json" -d '{"username": "bbcUser1", "type": "note", "title": "t1", "body":"b1"}'  http://localhost:8080/api/user/notify
 ```
 
 #### Output
