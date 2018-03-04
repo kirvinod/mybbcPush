@@ -36,13 +36,13 @@ http://localhost:8080
 | /api/user/notify   | POST    | username,type,body   | Send notification(note/file/link) using username |
 
 
-#### Register user `POST /api/user/register`
+#### Register user `POST /api/user/register` (valid request)
 
 ```sh
 curl -i -X POST -H "Content-Type:application/json" -d '{"username": "bbcUser1", "accessToken": "anAccessToken" }'  http://localhost:8080/api/user/register 
 ```
 
-Output
+#### Output
 
 ```sh
 HTTP/1.1 200 
@@ -59,3 +59,23 @@ Date: Sun, 04 Mar 2018 13:28:06 GMT
 }
 ```
 
+#### Register user `POST /api/user/register` (duplicate user)
+
+```sh
+curl -i -X POST -H " '{"username": "bbcUser1", "accessToken": "anAccessToken" }'  http://localhost:8080/api/user/register 
+```
+
+#### Output
+```sh
+HTTP/1.1 409 
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 04 Mar 2018 13:31:48 GMT
+
+{
+"status":"CONFLICT",
+"message":"User with this username already exists.",
+"errors":[],
+"timestamp":"2018-03-04T13:31:48.330Z"
+}
+```sh
