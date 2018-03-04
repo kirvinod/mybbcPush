@@ -137,7 +137,7 @@ Application can send 3 types of notifications: Note, File and Link.
 | ------------------ | --------| -----------------    |
 | /api/user/notify   | note    | username,type,title,body | 
 | /api/user/notify   | link    | username,type,title,body,url |
-| /api/user/notify   | link    | username,type,body,file_name,file_type,file_url |
+| /api/user/notify   | file    | username,type,body,file_name,file_type,file_url |
 
 #### Send Notification to user `POST /api/user/notify` (valid request)
 ```sh
