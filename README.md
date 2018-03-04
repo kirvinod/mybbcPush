@@ -129,5 +129,53 @@ Date: Sun, 04 Mar 2018 13:38:50 GMT
 ```
 
 
-#### Send Notification to user `POST /api/user/notify` (valid request)
+### Notification
 
+Application can send 3 types of notifications: Note, File and Link.
+
+| Resource           | Type    | Required Params      |
+| ------------------ | --------| -----------------    |
+| /api/user/notify   | note    | username,type,title,body | 
+| /api/user/notify   | link    | username,type,title,body,url |
+| /api/user/notify   | link    | username,type,body,file_name,file_type,file_url |
+
+#### Send Notification to user `POST /api/user/notify` (valid request)
+```sh
+curl -i -X POST -H "Content-Type:application/jsname": "bbcUser1", "type": "note", "title": "t1", "body":"b1"}'  http://localhost:8080/api/user/notify
+```
+
+#### Output
+```sh
+HTTP/1.1 200 
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 04 Mar 2018 13:53:25 GMT
+
+{
+"status":"OK",
+"message":"Notification Sent Successfully!"
+}
+
+```
+
+#### Send Notification to user `POST /api/user/notify` (missing params)
+```sh
+curl -i -X POST -H "Content-Type:application/json" -d '{"username": "bbcUser1", "type": "file",  "body":"b1"}'  http://localhost:8080/api/user/notify
+```
+#### Output
+```sh
+HTTP/1.1 406 
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 04 Mar 2018 13:55:49 GMT
+
+{
+"status":"NOT_ACCEPTABLE",
+"message":"Invalid or Missing Parameter(s).",
+"errors":[
+          "file_type: Parameter 'file_type' is required.",
+          "file_name: Parameter 'file_name' is required.",
+          "file_url: Parameter 'file_url' is required."
+        ],
+"timestamp":"2018-03-04T13:55:49.616Z"}
+```
