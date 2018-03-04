@@ -1,3 +1,5 @@
+Application is built with spring boot using in memory database H2. 
+
 ## Setup
 
 **Step 1:**  Clone repository
