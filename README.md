@@ -24,5 +24,12 @@ mvn spring-boot:run
 http://localhost:8080
 ```
 
-##Resources List
+## Resources List
+
+
+| Resource           | Method  | Required Params      | Description                                      |
+| ------------------ | --------| -----------------    | ------------------------------------------------ |
+| /api/user/register | POST    | username,accessToken | Create new user                                  |
+| /api/user/list     | GET     | -                    | List all registred users                         |
+| /api/user/notify   | POST    | username,type,body   | Send notification(note/file/link) using username |
 
