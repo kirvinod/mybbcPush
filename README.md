@@ -78,4 +78,24 @@ Date: Sun, 04 Mar 2018 13:31:48 GMT
 "errors":[],
 "timestamp":"2018-03-04T13:31:48.330Z"
 }
+```
+#### Register user `POST /api/user/register` (missinig params)
+
 ```sh
+curl -i -X PO '{"username": "bbcUser1" }'  http://localhost:8080/api/user/register 
+```
+#### Output
+```sh
+HTTP/1.1 406 
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 04 Mar 2018 13:35:05 GMT
+
+{
+"status":"NOT_ACCEPTABLE",
+"message":"Invalid or Missing Parameter(s).",
+"errors":["accessToken: Parameter 'accessToken' is required."],
+"timestamp":"2018-03-04T13:35:05.386Z"
+}
+```
+
