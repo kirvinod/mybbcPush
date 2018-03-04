@@ -99,3 +99,35 @@ Date: Sun, 04 Mar 2018 13:35:05 GMT
 }
 ```
 
+#### List users `GET /api/user/list` 
+
+```sh
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:8080/api/user/list 
+```
+
+#### Output
+```sh
+HTTP/1.1 200 
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 04 Mar 2018 13:38:50 GMT
+
+[
+ {
+  "username": "bbcuser1",
+  "accessToken": "anAccessToken",
+  "numOfNotificationsPushed": 0,
+  "creationTime": "2018-03-04T13:28:06.172"
+ },
+ {
+  "username": "bbcuser2",
+  "accessToken": "anAccessToken",
+  "numOfNotificationsPushed": 0,
+  "creationTime": "2018-03-04T13:40:24.292"
+ }
+]
+```
+
+
+#### Send Notification to user `POST /api/user/notify` (valid request)
+
